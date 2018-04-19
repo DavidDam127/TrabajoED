@@ -7,10 +7,15 @@ package trabajoed;
 
 /**
  *
- * @author DAM127
+ * @author Pablo Sánchez
  */
 public class Cliente {
     
     private String nombre, NIF;
     private int id;
+
+    public Cliente() {
+    }
+    
+    
 }
