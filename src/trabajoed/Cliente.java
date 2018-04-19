@@ -11,4 +11,6 @@ package trabajoed;
  */
 public class Cliente {
     
+    private String nombre, NIF;
+    private int id;
 }
