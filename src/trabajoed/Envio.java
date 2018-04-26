@@ -11,4 +11,8 @@ package trabajoed;
  */
 public class Envio {
     
+    public Envio(){
+        
+    }
+    
 }
