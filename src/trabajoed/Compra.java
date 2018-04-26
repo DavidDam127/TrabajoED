@@ -10,5 +10,7 @@ package trabajoed;
  * @author DAM127
  */
 public class Compra {
+    private String referencia;
+    
     
 }
