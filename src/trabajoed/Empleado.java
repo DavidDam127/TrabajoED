@@ -10,5 +10,7 @@ package trabajoed;
  * @author DAM127
  */
 public class Empleado {
+    private int id;
+    private String nombre, apellidos, direccion, telefono,NIF;
     
 }
