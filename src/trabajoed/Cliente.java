@@ -11,11 +11,16 @@ package trabajoed;
  */
 public class Cliente {
     
-    private String nombre, NIF;
+    private String nombre, NIF, direccion, telefono, tarjetaCredito, cuentaCorriente;
     private int id;
 
     public Cliente() {
+        
+        
+        
     }
+    
+    
     
     
 }
