@@ -11,4 +11,8 @@ package trabajoed;
  */
 public class Repartidor {
     
+    public Repartidor(){
+        
+    }
+    
 }
