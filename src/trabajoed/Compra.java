@@ -11,6 +11,11 @@ package trabajoed;
  */
 public class Compra {
     private String referencia;
+
+    public Compra() {
+    }
+    
+    
     
     
 }
