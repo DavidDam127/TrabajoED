@@ -11,4 +11,10 @@ package trabajoed;
  */
 public class EmpleadoTaller {
     
+    private boolean senior;
+    
+    public EmpleadoTaller(){
+        
+    }
+    
 }
