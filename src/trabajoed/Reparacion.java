@@ -11,4 +11,10 @@ package trabajoed;
  */
 public class Reparacion {
     
+    private int id, duracionTotal;
+    
+    public Reparacion(){
+        
+    }
+    
 }
