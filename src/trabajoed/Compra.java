@@ -11,6 +11,10 @@ package trabajoed;
  */
 public class Compra {
     private String referencia;
-    
+    private double precioTotal;
+    private char metodoPago;
+
+    public Compra() {
+    }
     
 }
