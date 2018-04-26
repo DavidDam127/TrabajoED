@@ -11,4 +11,9 @@ package trabajoed;
  */
 public class Repartidor {
     
+    private int radioRepartidor;
+
+    public Repartidor() {
+    }
+    
 }
