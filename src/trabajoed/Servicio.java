@@ -5,10 +5,21 @@
  */
 package trabajoed;
 
+import java.util.Date;
+
 /**
  *
  * @author DAM127
  */
 public class Servicio {
+    
+    private int id;
+    private Date fecha;
+    private String notas;
+    private double precioTotal;
+    
+    public Servicio(){
+        
+    }
     
 }

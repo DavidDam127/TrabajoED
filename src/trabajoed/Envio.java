@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 public class Envio {
     
+
     private int id;
     private Calendar fechaSalida;
     private double real;
@@ -20,6 +21,7 @@ public class Envio {
     private String lugar;
 
     public Envio() {
+
     }
     
 }

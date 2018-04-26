@@ -11,4 +11,10 @@ package trabajoed;
  */
 public class Mantenimiento {
     
+    private int numeroHoras;
+    
+    public Mantenimiento(){
+        
+    }
+    
 }
