@@ -5,10 +5,21 @@
  */
 package trabajoed;
 
+import java.util.Calendar;
+
 /**
  *
  * @author DAM127
  */
 public class Envio {
+    
+    private int id;
+    private Calendar fechaSalida;
+    private double real;
+    private char tipo;
+    private String lugar;
+
+    public Envio() {
+    }
     
 }
