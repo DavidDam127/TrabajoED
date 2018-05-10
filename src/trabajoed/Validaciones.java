@@ -79,7 +79,7 @@ public class Validaciones {
 
     }
     
-    public static boolean introducorTarjeta(String tarjeta){
+    public static boolean introducirTarjeta(String tarjeta){
         
         boolean valido = false;
         

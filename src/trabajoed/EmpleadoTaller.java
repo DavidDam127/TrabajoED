@@ -9,7 +9,7 @@ package trabajoed;
  *
  * @author DAM127
  */
-public class EmpleadoTaller {
+public class EmpleadoTaller extends Empleado{
     
     private boolean senior;
     
