@@ -16,11 +16,15 @@ public class Registro extends javax.swing.JFrame {
 
     
     Administracion empresa=new Administracion();
-    /**
-     * Creates new form Registro
-     */
+    
+    
+    
     public Registro() {
+        
         initComponents();
+        
+        txtaCargaClientes.setText(empresa.cargarClientes());
+        
     }
 
     /**
@@ -48,14 +52,17 @@ public class Registro extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtRegistroDireccion = new javax.swing.JTextPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnRegistrarse = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         lblErrorDireccion = new javax.swing.JLabel();
         btnVolver = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtaCargaClientes = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -75,17 +82,17 @@ public class Registro extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(txtRegistroDireccion);
 
-        jButton1.setText("Registrarse");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarse.setText("Registrarse");
+        btnRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegistrarseActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Borrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnBorrarActionPerformed(evt);
             }
         });
 
@@ -128,12 +135,12 @@ public class Registro extends javax.swing.JFrame {
                             .addComponent(lblErrorDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1)
+                                .addComponent(btnRegistrarse)
                                 .addComponent(btnVolver))
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(btnSalir)
-                                .addComponent(jButton2)))))
+                                .addComponent(btnBorrar)))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -165,8 +172,8 @@ public class Registro extends javax.swing.JFrame {
                 .addComponent(lblErrorDireccion)
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnRegistrarse)
+                    .addComponent(btnBorrar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnVolver)
@@ -176,6 +183,12 @@ public class Registro extends javax.swing.JFrame {
 
         jLabel1.setText("Registro de usuario:");
 
+        txtaCargaClientes.setColumns(20);
+        txtaCargaClientes.setRows(5);
+        jScrollPane5.setViewportView(txtaCargaClientes);
+
+        jLabel4.setText("Carga e ingreso de nuevos clientes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,24 +196,34 @@ public class Registro extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(29, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         
         lblErrorNombre.setText("");
         lblErrorNIF.setText("");
@@ -292,8 +315,14 @@ public class Registro extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Registro completado", "Registro", 
                     JOptionPane.PLAIN_MESSAGE, null);
                 
-                JOptionPane.showMessageDialog(null, "Clientes: \t"+empresa.mostrarClientes(), "Registro", 
-                    JOptionPane.PLAIN_MESSAGE, null);
+                txtRegistroNIF.setText("");
+                txtRegistroNombre.setText("");
+                txtRegistroDireccion.setText("");
+                txtRegistroTelefono.setText("");
+                
+                txtaCargaClientes.setText(txtaCargaClientes.getText()+nuevoCliente.toString());
+                
+                
             }else{
             
             JOptionPane.showMessageDialog(null, "Registro fallido", "Registro", 
@@ -301,13 +330,21 @@ public class Registro extends javax.swing.JFrame {
             }
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegistrarseActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        
+        txtRegistroNIF.setText("");
+        txtRegistroNombre.setText("");
+        txtRegistroDireccion.setText("");
+        txtRegistroTelefono.setText("");
+        
+    }//GEN-LAST:event_btnBorrarActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        
+        empresa.guardarClientes(empresa);
+        
         dispose();
         Inicio in=new Inicio();
         in.setVisible(true);
@@ -317,6 +354,8 @@ public class Registro extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        
+        empresa.guardarClientes(empresa);
+        
         
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
@@ -357,13 +396,14 @@ public class Registro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBorrar;
+    private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVolver;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
@@ -371,6 +411,7 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lblErrorDireccion;
     private javax.swing.JLabel lblErrorNIF;
     private javax.swing.JLabel lblErrorNombre;
@@ -379,5 +420,6 @@ public class Registro extends javax.swing.JFrame {
     private javax.swing.JTextPane txtRegistroNIF;
     private javax.swing.JTextPane txtRegistroNombre;
     private javax.swing.JTextPane txtRegistroTelefono;
+    private javax.swing.JTextArea txtaCargaClientes;
     // End of variables declaration//GEN-END:variables
 }
