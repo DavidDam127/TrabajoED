@@ -6,6 +6,7 @@
 package trabajoed;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,10 +17,13 @@ public class Inicio extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
+    Administracion empresa=new Administracion();
+    
+    
     public Inicio() {
         
         initComponents();
-        Administracion empresa=new Administracion();
+        
     }
 
     /**
@@ -61,6 +65,11 @@ public class Inicio extends javax.swing.JFrame {
         });
 
         btnBorrarInicio.setText("Borrar");
+        btnBorrarInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarInicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -151,7 +160,30 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAceptarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarInicioActionPerformed
-        // TODO add your handling code here:
+        
+        String contraseña="";
+        char[] cont=txtPassInicio.getPassword();
+        
+        for(int i=0; i<cont.length; i++){
+            contraseña=contraseña+cont[i];
+        }
+        
+        if(empresa.iniciarSesion(contraseña)){
+            dispose();
+            MenuUsuario menu=new MenuUsuario();
+            menu.setVisible(true);
+        }else{ 
+            
+            JOptionPane.showMessageDialog(null, "Nombre o contraseña incorrectos",
+                        "Inicio fallido", JOptionPane.ERROR_MESSAGE, null);
+            txtPassInicio.setText("");
+            
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnAceptarInicioActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
@@ -166,6 +198,13 @@ public class Inicio extends javax.swing.JFrame {
         
         System.exit(0);
     }//GEN-LAST:event_btnSalirInicioActionPerformed
+
+    private void btnBorrarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarInicioActionPerformed
+        
+        txtIdInicio.setText("");
+        txtPassInicio.setText("");
+        
+    }//GEN-LAST:event_btnBorrarInicioActionPerformed
 
     /**
      * @param args the command line arguments

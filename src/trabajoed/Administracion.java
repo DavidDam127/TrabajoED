@@ -126,5 +126,33 @@ public class Administracion {
         }
 
     }
+    
+    public boolean buscarUsuario(String NIF){
+        boolean encontrado=false;
+        
+        for(Cliente c: this.listadoClientes){
+            if(c.getNIF().equals(NIF)){
+                encontrado=true;
+            }
+        }
+        
+        
+        return encontrado;
+    }
+    
+    public boolean iniciarSesion(String NIF){
+        
+        boolean correcto=false;
+        
+        for(Cliente c: this.listadoClientes){
+            
+                if(c.getNIF().equalsIgnoreCase(NIF)){
+                    correcto=true;
+                }
+                
+            
+        }
+        return correcto;
+    }
 
 }

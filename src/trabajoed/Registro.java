@@ -297,39 +297,41 @@ public class Registro extends javax.swing.JFrame {
         
         
         //Mensaje de prueba para ver que el registro es válido.
-        if(regVal){
-            
-            
-            
-            String nombre=txtRegistroNombre.getText();
-            String NIF=txtRegistroNIF.getText();
-            String direccion=txtRegistroDireccion.getText();
-            String telefono=txtRegistroTelefono.getText();
-            int id=empresa.getNumeroClientes();       
-            
-            
-            Cliente nuevoCliente=new Cliente(nombre, NIF, direccion,
-            telefono, id);
-            
-            if(empresa.añadirCliente(nuevoCliente)){
-                JOptionPane.showMessageDialog(null, "Registro completado", "Registro", 
-                    JOptionPane.PLAIN_MESSAGE, null);
-                
-                txtRegistroNIF.setText("");
-                txtRegistroNombre.setText("");
-                txtRegistroDireccion.setText("");
-                txtRegistroTelefono.setText("");
-                
-                txtaCargaClientes.setText(txtaCargaClientes.getText()+nuevoCliente.toString());
-                
-                
+        if (regVal) {
+
+            String nombre = txtRegistroNombre.getText();
+            String NIF = txtRegistroNIF.getText();
+            String direccion = txtRegistroDireccion.getText();
+            String telefono = txtRegistroTelefono.getText();
+            int id = empresa.getNumeroClientes();
+
+            if (!empresa.buscarUsuario(NIF)) {
+                Cliente nuevoCliente = new Cliente(nombre, NIF, direccion,
+                        telefono, id);
+
+                if (empresa.añadirCliente(nuevoCliente)) {
+                    JOptionPane.showMessageDialog(null, "Registro completado", "Registro",
+                            JOptionPane.PLAIN_MESSAGE, null);
+
+                    txtRegistroNIF.setText("");
+                    txtRegistroNombre.setText("");
+                    txtRegistroDireccion.setText("");
+                    txtRegistroTelefono.setText("");
+
+                    txtaCargaClientes.setText(txtaCargaClientes.getText() + nuevoCliente.toString());
+
+                } else {
+
+                    JOptionPane.showMessageDialog(null, "Registro fallido", "Registro",
+                            JOptionPane.ERROR_MESSAGE, null);
+                }
             }else{
-            
-            JOptionPane.showMessageDialog(null, "Registro fallido", "Registro", 
-                    JOptionPane.ERROR_MESSAGE, null);
+                JOptionPane.showMessageDialog(null, "Este usuario ya existe. Introduzca otro NIF",
+                        "Registro", JOptionPane.ERROR_MESSAGE, null);
             }
+
         }
-        
+
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed

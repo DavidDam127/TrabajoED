@@ -29,6 +29,26 @@ public class Cliente implements Serializable{
         
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    
+
+    public String getNIF() {
+        return NIF;
+    }
+
+    public void setNIF(String NIF) {
+        this.NIF = NIF;
+    }
+    
+    
+
     @Override
     public String toString() {
         return "Cliente{" + "nombre=" + nombre + ", NIF=" + NIF + ", direccion=" + direccion + ", telefono=" + telefono + ", tarjetaCredito=" + tarjetaCredito + ", cuentaCorriente=" + cuentaCorriente + ", id=" + id + '}';
