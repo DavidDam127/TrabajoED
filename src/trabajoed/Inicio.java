@@ -18,7 +18,7 @@ public class Inicio extends javax.swing.JFrame {
      * Creates new form Inicio
      */
     Administracion empresa=new Administracion();
-    
+    public Cliente clienteActivo;
     
     public Inicio() {
         
@@ -168,7 +168,7 @@ public class Inicio extends javax.swing.JFrame {
             contraseña=contraseña+cont[i];
         }
         
-        if(empresa.iniciarSesion(contraseña)){
+        if(empresa.iniciarSesion(contraseña, txtIdInicio.getText())){
             dispose();
             MenuUsuario menu=new MenuUsuario();
             menu.setVisible(true);

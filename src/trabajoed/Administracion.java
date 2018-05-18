@@ -29,6 +29,24 @@ public class Administracion {
 
         listadoClientes = new ArrayList<Cliente>();
         listadoEmpleados = new ArrayList<Empleado>();
+        
+        
+        // Carga de los clientes en el Array.
+        ObjectInputStream io;
+        try {
+            io =new ObjectInputStream(new FileInputStream(datosClientes));
+            Cliente c=null;
+            while(true){
+                c=(Cliente)io.readObject();
+                this.listadoClientes.add(c);
+            }
+        } catch (IOException ex) {
+            
+        } catch (ClassNotFoundException ex) {
+            
+        }
+        
+        setNumeroClientes(listadoClientes.size()+1);
 
     }
 
@@ -59,49 +77,18 @@ public class Administracion {
 
     public String mostrarClientes() {
 
-        String clientes = "";
-
-        for (int i = 0; i < listadoClientes.size(); i++) {
-            clientes = "\t" + listadoClientes.get(i).toString();
-        }
-
-        return clientes;
-
-    }
-
-    public void setNumeroClientes(int numeroClientes) {
-        this.numeroClientes = numeroClientes;
-    }
-    
-    
-    
-    
-    public String cargarClientes(){
-        
-        ObjectInputStream io;
-        try {
-            io =new ObjectInputStream(new FileInputStream(datosClientes));
-            Cliente c=null;
-            while(true){
-                c=(Cliente)io.readObject();
-                this.listadoClientes.add(c);
-            }
-        } catch (IOException ex) {
-            
-        } catch (ClassNotFoundException ex) {
-            
-        }
         String cadena="";
         for(Cliente cli:listadoClientes){
             cadena=cadena+cli.toString()+"\n";
         }
         
-        setNumeroClientes(listadoClientes.size()+1);
         
         return cadena;
-        
-        
-    
+
+    }
+
+    public void setNumeroClientes(int numeroClientes) {
+        this.numeroClientes = numeroClientes;
     }
 
     public void guardarClientes(Administracion empresa) {
@@ -140,13 +127,13 @@ public class Administracion {
         return encontrado;
     }
     
-    public boolean iniciarSesion(String NIF){
+    public boolean iniciarSesion(String NIF, String nombre){
         
         boolean correcto=false;
         
         for(Cliente c: this.listadoClientes){
             
-                if(c.getNIF().equalsIgnoreCase(NIF)){
+                if(c.getNIF().equalsIgnoreCase(NIF) && c.getNombre().equalsIgnoreCase(nombre)){
                     correcto=true;
                 }
                 

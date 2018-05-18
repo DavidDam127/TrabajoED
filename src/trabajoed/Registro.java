@@ -23,7 +23,7 @@ public class Registro extends javax.swing.JFrame {
         
         initComponents();
         
-        txtaCargaClientes.setText(empresa.cargarClientes());
+        txtaCargaClientes.setText(empresa.mostrarClientes());
         
     }
 
@@ -318,7 +318,7 @@ public class Registro extends javax.swing.JFrame {
                     txtRegistroDireccion.setText("");
                     txtRegistroTelefono.setText("");
 
-                    txtaCargaClientes.setText(txtaCargaClientes.getText() + nuevoCliente.toString());
+                    txtaCargaClientes.setText(txtaCargaClientes.getText() +nuevoCliente.toString());
 
                 } else {
 
