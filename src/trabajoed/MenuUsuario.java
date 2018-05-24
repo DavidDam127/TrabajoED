@@ -6,15 +6,28 @@
 
 package trabajoed;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DAM124
  */
 public class MenuUsuario extends javax.swing.JFrame {
 
-    /** Creates new form MenuUsuario */
+    Administracion empresa=new Administracion();
+    private Cliente clienteActivo;
+        
+    
+    
     public MenuUsuario() {
         initComponents();
+        
+        clienteActivo=empresa.devolverUsuario(Inicio.DNIActivo);
+        
+        lblUsuario.setText(clienteActivo.getNombre());
+        
+        
     }
 
     /** This method is called from within the constructor to
@@ -28,49 +41,516 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblUsuario = new javax.swing.JLabel();
+        btnDesconectar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        btnPerfil = new javax.swing.JButton();
+        pnlPrincipal = new javax.swing.JPanel();
+        pnlMenu = new javax.swing.JPanel();
+        btnCatalogo = new javax.swing.JButton();
+        btnReparaciones = new javax.swing.JButton();
+        pnlCompra = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        cboxCantidadCPU = new javax.swing.JComboBox<>();
+        lblPrecioCPU = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        lblPrecioRAM = new javax.swing.JLabel();
+        cboxCantidadRAM = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        lblPrecioMonitor = new javax.swing.JLabel();
+        cboxCantidadMonitor = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cboxCantidadAcc = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        lblPrecioTotal = new javax.swing.JLabel();
+        btnVolverMenu = new javax.swing.JButton();
+        btnConfirmarCompra = new javax.swing.JButton();
+        lblTotalCPU = new javax.swing.JLabel();
+        lblTotalRAM = new javax.swing.JLabel();
+        lblTotalMonitor = new javax.swing.JLabel();
+        lblTotalAcc = new javax.swing.JLabel();
+        pnlPerfil = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        txtNuevoNombre = new javax.swing.JTextField();
+        btnConfirmarPerfil = new javax.swing.JButton();
+        lblErrorPerfilNombre = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        txtNuevaDireccion = new javax.swing.JTextField();
+        lblErrorDireccion = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtNuevoTelefono = new javax.swing.JTextField();
+        lblErrorTelefono = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        txtNuevaTarjeta = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtNuevaCuenta = new javax.swing.JTextField();
+        lblErrorTarjeta = new javax.swing.JLabel();
+        lblErrorCuenta = new javax.swing.JLabel();
+        btnVolver = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        lblUsuario.setText("jLabel1");
+        btnDesconectar.setText("Desconectar");
+        btnDesconectar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesconectarActionPerformed(evt);
+            }
+        });
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
+        btnPerfil.setText("Perfil");
+        btnPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPerfilActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDesconectar))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(btnSalir)))
+                .addContainerGap(18, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(71, Short.MAX_VALUE)
-                .addComponent(lblUsuario)
-                .addGap(68, 68, 68))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblUsuario)
+                        .addGap(68, 68, 68))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnPerfil)
+                        .addGap(39, 39, 39))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUsuario)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(btnPerfil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnDesconectar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSalir)
+                .addGap(26, 26, 26))
         );
+
+        pnlPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        pnlPrincipal.setLayout(new java.awt.CardLayout());
+
+        btnCatalogo.setText("Ver Catálogo");
+        btnCatalogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCatalogoActionPerformed(evt);
+            }
+        });
+
+        btnReparaciones.setText("Reparaciones");
+
+        javax.swing.GroupLayout pnlMenuLayout = new javax.swing.GroupLayout(pnlMenu);
+        pnlMenu.setLayout(pnlMenuLayout);
+        pnlMenuLayout.setHorizontalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(btnCatalogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addComponent(btnReparaciones)
+                .addGap(40, 40, 40))
+        );
+        pnlMenuLayout.setVerticalGroup(
+            pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlMenuLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReparaciones)
+                    .addComponent(btnCatalogo))
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        pnlPrincipal.add(pnlMenu, "card2");
+
+        jLabel1.setText("CPU");
+
+        cboxCantidadCPU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
+
+        lblPrecioCPU.setText("200 €/uni");
+
+        jLabel2.setText("Memoria RAM");
+
+        lblPrecioRAM.setText("60 €/uni");
+
+        cboxCantidadRAM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
+
+        jLabel4.setText("Monitor");
+
+        lblPrecioMonitor.setText("80 €/uni");
+
+        cboxCantidadMonitor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
+
+        jLabel6.setText("Accesorios");
+
+        jLabel3.setText("20 €/uni");
+
+        cboxCantidadAcc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3", "4", "5" }));
+
+        jLabel5.setText("Precio Total: ");
+
+        lblPrecioTotal.setText("00 €");
+
+        btnVolverMenu.setText("Volver");
+        btnVolverMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverMenuActionPerformed(evt);
+            }
+        });
+
+        btnConfirmarCompra.setText("Comprar");
+
+        lblTotalCPU.setText("00 €");
+
+        lblTotalRAM.setText("00 €");
+
+        lblTotalMonitor.setText("00 €");
+
+        lblTotalAcc.setText("00 €");
+
+        javax.swing.GroupLayout pnlCompraLayout = new javax.swing.GroupLayout(pnlCompra);
+        pnlCompra.setLayout(pnlCompraLayout);
+        pnlCompraLayout.setHorizontalGroup(
+            pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCompraLayout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPrecioTotal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCompraLayout.createSequentialGroup()
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPrecioCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblPrecioRAM)
+                            .addComponent(lblPrecioMonitor)
+                            .addComponent(jLabel3))
+                        .addGap(67, 67, 67)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addComponent(cboxCantidadCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                                .addComponent(lblTotalCPU))
+                            .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addComponent(cboxCantidadRAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblTotalRAM))
+                            .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cboxCantidadMonitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTotalMonitor)
+                                    .addComponent(lblTotalAcc)))))
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnVolverMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmarCompra)))
+                .addGap(19, 19, 19))
+        );
+        pnlCompraLayout.setVerticalGroup(
+            pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCompraLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblPrecioCPU)
+                    .addComponent(cboxCantidadCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalCPU))
+                .addGap(18, 18, 18)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(lblPrecioRAM)
+                    .addComponent(cboxCantidadRAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalRAM))
+                .addGap(18, 18, 18)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(lblPrecioMonitor)
+                    .addComponent(cboxCantidadMonitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalMonitor))
+                .addGap(18, 18, 18)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
+                    .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTotalAcc))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(lblPrecioTotal))
+                .addGap(18, 18, 18)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnVolverMenu)
+                    .addComponent(btnConfirmarCompra))
+                .addGap(19, 19, 19))
+        );
+
+        pnlPrincipal.add(pnlCompra, "card3");
+
+        jLabel7.setText("Nombre: ");
+
+        btnConfirmarPerfil.setText("Confirmar");
+        btnConfirmarPerfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarPerfilActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Direccion:");
+
+        jLabel9.setText("Teléfono: ");
+
+        jLabel10.setText("Tarjeta: ");
+
+        jLabel11.setText("Cuenta: ");
+
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlPerfilLayout = new javax.swing.GroupLayout(pnlPerfil);
+        pnlPerfil.setLayout(pnlPerfilLayout);
+        pnlPerfilLayout.setHorizontalGroup(
+            pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPerfilLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmarPerfil)
+                .addGap(20, 20, 20))
+            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNuevaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnVolver)
+                        .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(21, 21, 21)
+                                .addComponent(txtNuevaTarjeta))
+                            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNuevoTelefono))
+                            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtNuevaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNuevoNombre))
+                            .addComponent(jLabel11))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblErrorPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblErrorDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblErrorTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblErrorTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblErrorCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        pnlPerfilLayout.setVerticalGroup(
+            pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlPerfilLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtNuevoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorPerfilNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtNuevaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtNuevoTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtNuevaTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorTarjeta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(txtNuevaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblErrorCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmarPerfil)
+                    .addComponent(btnVolver))
+                .addGap(19, 19, 19))
+        );
+
+        pnlPrincipal.add(pnlPerfil, "card4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(407, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDesconectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarActionPerformed
+        
+        dispose();
+        Inicio in=new Inicio();
+        in.setVisible(true);
+        
+    }//GEN-LAST:event_btnDesconectarActionPerformed
+
+    private void btnCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogoActionPerformed
+        
+        pnlMenu.setVisible(false);
+        pnlCompra.setVisible(true);
+        
+    }//GEN-LAST:event_btnCatalogoActionPerformed
+
+    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
+        // TODO add your handling code here:
+        
+        pnlCompra.setVisible(false);
+        pnlMenu.setVisible(true);
+    }//GEN-LAST:event_btnVolverMenuActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        
+        
+        System.exit(0);
+        
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
+        // TODO add your handling code here:
+        
+        pnlMenu.setVisible(false);
+        pnlPerfil.setVisible(true);
+        
+        txtNuevoNombre.setText(clienteActivo.getNombre());
+        txtNuevaDireccion.setText(clienteActivo.getDireccion());
+        txtNuevoTelefono.setText(clienteActivo.getTelefono());
+        
+    }//GEN-LAST:event_btnPerfilActionPerformed
+
+    private void btnConfirmarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPerfilActionPerformed
+        
+        boolean valido=true;
+        
+        if(!Validaciones.introducirNombre(txtNuevoNombre.getText())){        
+            lblErrorPerfilNombre.setForeground(Color.red);
+            lblErrorPerfilNombre.setText("Nombre Incorrecto");            
+            valido=false;
+        }
+        
+        if(!Validaciones.introducirDireccion(txtNuevaDireccion.getText())){
+            lblErrorDireccion.setForeground(Color.red);
+            lblErrorDireccion.setText("Dirección Incorrecta");
+            valido=false;
+        }
+        
+        if(!Validaciones.introducirNumero(txtNuevoTelefono.getText())){
+            lblErrorTelefono.setForeground(Color.red);
+            lblErrorTelefono.setText("Telefono Incorrecto");
+            valido=false;
+        }
+        
+        if(!Validaciones.introducirTarjeta(txtNuevaTarjeta.getText())){
+            lblErrorTarjeta.setForeground(Color.red);
+            lblErrorTarjeta.setText("Tarjeta Incorrecta");
+            valido=false;
+        }
+        
+        if(!Validaciones.introducirCuenta(txtNuevaCuenta.getText())){
+            lblErrorCuenta.setForeground(Color.red);
+            lblErrorCuenta.setText("Cuenta Corriente Incorrecta");
+            valido=false;
+        }
+        
+        
+        if(valido){
+            empresa.cambiarNombreUsuario(txtNuevoNombre.getText(), clienteActivo.getNIF());
+            empresa.cambiarDireccionUsuario(txtNuevaDireccion.getText(), clienteActivo.getNIF());
+            empresa.cambiarTelefono(txtNuevoTelefono.getText(), clienteActivo.getNIF());
+            empresa.cambiarTarjeta(txtNuevaTarjeta.getText(), clienteActivo.getNIF());
+            empresa.cambiarCuenta(txtNuevaCuenta.getText(), clienteActivo.getNIF());
+            clienteActivo.setNombre(txtNuevoNombre.getText());
+            clienteActivo.setDireccion(txtNuevaDireccion.getText());
+            clienteActivo.setTelefono(txtNuevoTelefono.getText());
+            clienteActivo.setTarjetaCredito(txtNuevaTarjeta.getText());
+            clienteActivo.setCuentaCorriente(txtNuevaCuenta.getText());
+            lblUsuario.setText(clienteActivo.getNombre());
+            
+            
+            empresa.guardarClientes(empresa);
+            JOptionPane.showMessageDialog(null, "Perfil actualizado",
+                        "Perfil actualizado", JOptionPane.INFORMATION_MESSAGE, null);
+        }
+        
+    }//GEN-LAST:event_btnConfirmarPerfilActionPerformed
+
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        
+        pnlPerfil.setVisible(false);
+        pnlMenu.setVisible(true);
+        
+    }//GEN-LAST:event_btnVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,8 +588,54 @@ public class MenuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCatalogo;
+    private javax.swing.JButton btnConfirmarCompra;
+    private javax.swing.JButton btnConfirmarPerfil;
+    private javax.swing.JButton btnDesconectar;
+    private javax.swing.JButton btnPerfil;
+    private javax.swing.JButton btnReparaciones;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JComboBox<String> cboxCantidadAcc;
+    private javax.swing.JComboBox<String> cboxCantidadCPU;
+    private javax.swing.JComboBox<String> cboxCantidadMonitor;
+    private javax.swing.JComboBox<String> cboxCantidadRAM;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblErrorCuenta;
+    private javax.swing.JLabel lblErrorDireccion;
+    private javax.swing.JLabel lblErrorPerfilNombre;
+    private javax.swing.JLabel lblErrorTarjeta;
+    private javax.swing.JLabel lblErrorTelefono;
+    private javax.swing.JLabel lblPrecioCPU;
+    private javax.swing.JLabel lblPrecioMonitor;
+    private javax.swing.JLabel lblPrecioRAM;
+    private javax.swing.JLabel lblPrecioTotal;
+    private javax.swing.JLabel lblTotalAcc;
+    private javax.swing.JLabel lblTotalCPU;
+    private javax.swing.JLabel lblTotalMonitor;
+    private javax.swing.JLabel lblTotalRAM;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JPanel pnlCompra;
+    private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlPerfil;
+    private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JTextField txtNuevaCuenta;
+    private javax.swing.JTextField txtNuevaDireccion;
+    private javax.swing.JTextField txtNuevaTarjeta;
+    private javax.swing.JTextField txtNuevoNombre;
+    private javax.swing.JTextField txtNuevoTelefono;
     // End of variables declaration//GEN-END:variables
 
 }

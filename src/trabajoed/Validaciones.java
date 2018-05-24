@@ -5,8 +5,7 @@
  */
 package trabajoed;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -84,7 +83,7 @@ public class Validaciones {
         boolean valido = false;
         
          
-            if (tarjeta.matches("[0-9][16]")) {
+            if (tarjeta.matches("[0-9]{16}")) {
                 valido = true;
             } else {
                 System.err.println("ERROR. Tarjeta no válida.");
@@ -98,7 +97,7 @@ public class Validaciones {
         boolean valido = false;
         
         
-            if (cuenta.matches("[0-9][20]")) {
+            if (cuenta.matches("[0-9]{20}")) {
                 valido = true;
             } else {
                 System.err.println("ERROR. Cuenta bancaria.");

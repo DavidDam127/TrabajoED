@@ -13,12 +13,14 @@ import javax.swing.JOptionPane;
  * @author DAM124
  */
 public class Inicio extends javax.swing.JFrame {
+    
+    public static String DNIActivo, nombreActivo;
 
     /**
      * Creates new form Inicio
      */
     Administracion empresa=new Administracion();
-    public Cliente clienteActivo;
+    
     
     public Inicio() {
         
@@ -169,6 +171,9 @@ public class Inicio extends javax.swing.JFrame {
         }
         
         if(empresa.iniciarSesion(contraseña, txtIdInicio.getText())){
+            
+            
+            DNIActivo=contraseña;
             dispose();
             MenuUsuario menu=new MenuUsuario();
             menu.setVisible(true);

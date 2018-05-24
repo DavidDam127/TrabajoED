@@ -306,8 +306,8 @@ public class Registro extends javax.swing.JFrame {
             int id = empresa.getNumeroClientes();
 
             if (!empresa.buscarUsuario(NIF)) {
-                Cliente nuevoCliente = new Cliente(nombre, NIF, direccion,
-                        telefono, id);
+                Cliente nuevoCliente = new Cliente(nombre, NIF, telefono,
+                        direccion, id);
 
                 if (empresa.añadirCliente(nuevoCliente)) {
                     JOptionPane.showMessageDialog(null, "Registro completado", "Registro",

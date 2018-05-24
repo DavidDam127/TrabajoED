@@ -141,5 +141,90 @@ public class Administracion {
         }
         return correcto;
     }
+    
+    public Cliente devolverUsuario(String NIF){
+        
+        
+        Cliente clienteActivo = null;
+        
+        for(Cliente c: this.listadoClientes){
+            
+                if(c.getNIF().equalsIgnoreCase(NIF)){
+                    clienteActivo=c;
+                    
+                }
+                
+            
+        }
+        
+        return clienteActivo;
+   
+    }
+    
+    public void cambiarNombreUsuario(String nombre, String NIF){
+        
+        for(Cliente c: this.listadoClientes){
+            
+            if(c.getNIF().equalsIgnoreCase(NIF)){
+                
+                c.setNombre(nombre);
+                
+            }
+        }
+        
+    }
+    
+    public void cambiarDireccionUsuario(String direccion, String NIF){
+        
+        for(Cliente c: this.listadoClientes){
+            
+            if(c.getNIF().equalsIgnoreCase(NIF)){
+                
+                c.setDireccion(direccion);
+                
+            }
+        }
+        
+    }
+    
+    public void cambiarTelefono(String telefono, String NIF){
+        
+        for(Cliente c: this.listadoClientes){
+            
+            if(c.getNIF().equalsIgnoreCase(NIF)){
+                
+                c.setTelefono(telefono);
+                
+            }
+        }
+        
+    }
+    
+    public void cambiarTarjeta(String tarjeta, String NIF){
+        
+        for(Cliente c: this.listadoClientes){
+            
+            if(c.getNIF().equalsIgnoreCase(NIF)){
+                
+                c.setTarjetaCredito(tarjeta);
+                
+            }
+        }
+        
+    }
+    
+    public void cambiarCuenta(String cuenta, String NIF){
+        
+        for(Cliente c: this.listadoClientes){
+            
+            if(c.getNIF().equalsIgnoreCase(NIF)){
+                
+                c.setCuentaCorriente(cuenta);
+                
+            }
+        }
+        
+    }
+    
 
 }
