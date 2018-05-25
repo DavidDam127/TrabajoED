@@ -540,41 +540,69 @@ public class MenuUsuario extends javax.swing.JFrame {
         txtNuevoNombre.setText(clienteActivo.getNombre());
         txtNuevaDireccion.setText(clienteActivo.getDireccion());
         txtNuevoTelefono.setText(clienteActivo.getTelefono());
-        
+        txtNuevaTarjeta.setText(clienteActivo.getTarjetaCredito());
+        txtNuevaCuenta.setText(clienteActivo.getCuentaCorriente());
     }//GEN-LAST:event_btnPerfilActionPerformed
 
     private void btnConfirmarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPerfilActionPerformed
         
         boolean valido=true;
         
+        
+        String nuevaTarjeta="Si sale esto está mal";
+        String nuevaCuenta="Si sale esto está mal";
+        
         if(!Validaciones.introducirNombre(txtNuevoNombre.getText())){        
             lblErrorPerfilNombre.setForeground(Color.red);
             lblErrorPerfilNombre.setText("Nombre Incorrecto");            
             valido=false;
+        }else{
+            lblErrorPerfilNombre.setText("");
         }
         
         if(!Validaciones.introducirDireccion(txtNuevaDireccion.getText())){
             lblErrorDireccion.setForeground(Color.red);
             lblErrorDireccion.setText("Dirección Incorrecta");
             valido=false;
+        }else{
+            lblErrorDireccion.setText("");
         }
         
         if(!Validaciones.introducirNumero(txtNuevoTelefono.getText())){
             lblErrorTelefono.setForeground(Color.red);
             lblErrorTelefono.setText("Telefono Incorrecto");
             valido=false;
+        }else{
+            lblErrorTelefono.setText("");
         }
         
-        if(!Validaciones.introducirTarjeta(txtNuevaTarjeta.getText())){
+        
+        if(txtNuevaTarjeta.getText().equals("")){
+            nuevaTarjeta=null;
+        }else if(!Validaciones.introducirTarjeta(txtNuevaTarjeta.getText())){
             lblErrorTarjeta.setForeground(Color.red);
             lblErrorTarjeta.setText("Tarjeta Incorrecta");
+            
+            
+            
             valido=false;
+        }else{
+            nuevaTarjeta=txtNuevaTarjeta.getText();
+            lblErrorTarjeta.setText("");
         }
         
-        if(!Validaciones.introducirCuenta(txtNuevaCuenta.getText())){
+        if(txtNuevaCuenta.getText().equals("")){
+            nuevaCuenta=null;
+        }else if(!Validaciones.introducirCuenta(txtNuevaCuenta.getText())){
             lblErrorCuenta.setForeground(Color.red);
             lblErrorCuenta.setText("Cuenta Corriente Incorrecta");
+            
+            
+            
             valido=false;
+        }else{
+            lblErrorCuenta.setText("");
+            nuevaCuenta=txtNuevaCuenta.getText();
         }
         
         
@@ -582,13 +610,13 @@ public class MenuUsuario extends javax.swing.JFrame {
             empresa.cambiarNombreUsuario(txtNuevoNombre.getText(), clienteActivo.getNIF());
             empresa.cambiarDireccionUsuario(txtNuevaDireccion.getText(), clienteActivo.getNIF());
             empresa.cambiarTelefono(txtNuevoTelefono.getText(), clienteActivo.getNIF());
-            empresa.cambiarTarjeta(txtNuevaTarjeta.getText(), clienteActivo.getNIF());
-            empresa.cambiarCuenta(txtNuevaCuenta.getText(), clienteActivo.getNIF());
+            empresa.cambiarTarjeta(nuevaTarjeta, clienteActivo.getNIF());
+            empresa.cambiarCuenta(nuevaCuenta, clienteActivo.getNIF());
             clienteActivo.setNombre(txtNuevoNombre.getText());
             clienteActivo.setDireccion(txtNuevaDireccion.getText());
             clienteActivo.setTelefono(txtNuevoTelefono.getText());
-            clienteActivo.setTarjetaCredito(txtNuevaTarjeta.getText());
-            clienteActivo.setCuentaCorriente(txtNuevaCuenta.getText());
+            clienteActivo.setTarjetaCredito(nuevaTarjeta);
+            clienteActivo.setCuentaCorriente(nuevaCuenta);
             lblUsuario.setText(clienteActivo.getNombre());
             
             
