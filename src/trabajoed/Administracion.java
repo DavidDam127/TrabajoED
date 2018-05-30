@@ -24,11 +24,14 @@ public class Administracion {
     private ArrayList<Empleado> listadoEmpleados;
     private int numeroEmpleados = 1;
     private File datosClientes = new File("clientes.dat");
+    private File datosCompras = new File("compras.dat");
+    private ArrayList<Compra> listadoCompras;
 
     public Administracion() {
 
         listadoClientes = new ArrayList<Cliente>();
         listadoEmpleados = new ArrayList<Empleado>();
+        listadoCompras = new ArrayList<Compra>();
         
         
         // Carga de los clientes en el Array.
@@ -224,6 +227,40 @@ public class Administracion {
             }
         }
         
+    }
+    
+    public boolean añadirCompra(Compra nuevaCompra) {
+
+        boolean completado = false;
+
+        listadoCompras.add(nuevaCompra);
+        completado = true;
+
+        return completado;
+
+    }
+    
+    public void guardarCompras(Administracion empresa) {
+
+        ObjectOutputStream fo = null;
+        try {
+            fo = new ObjectOutputStream(new FileOutputStream(datosCompras));
+            for (Compra c : empresa.listadoCompras) {
+                fo.writeObject(c);
+            }
+        } catch (IOException ex) {
+
+        } finally {
+            if (fo != null) {
+                try {
+                    fo.close();
+                } catch (IOException ex) {
+
+                }
+            }
+
+        }
+
     }
     
 

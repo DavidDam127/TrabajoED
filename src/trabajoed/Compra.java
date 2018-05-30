@@ -14,7 +14,32 @@ public class Compra {
     private double precioTotal;
     private char metodoPago;
 
-    public Compra() {
+    public Compra(String referencia, double precioTotal, char metodoPago) {
+        
+        this.referencia=referencia;
+        this.precioTotal=precioTotal;
+        this.metodoPago=metodoPago;
+        
+                
     }
+    
+    public String devolverFactura(){
+        
+        String factura="";
+        String metodo="";
+        
+        if(metodoPago=='T'){
+            metodo="Tarjeta de crédito";
+        }else if(metodoPago=='C'){
+            metodo="Cuenta corriente";
+        }
+        
+        
+        factura="*** FACTURA ***\nReferencia: "+referencia+"\nPrecio Total"+precioTotal+"\nMétodo de pago: "+metodo;
+        
+        return factura;
+        
+    }
+    
 
 }
