@@ -220,7 +220,11 @@ public class Registro extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Este método se encarga de realizar el registro. 
+     * Valida los datos introducidos usando los metodos estaticos de la clase validaciones.
+     * En caso de que la validación falle se envía un mensaje de error.
+     */
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
         
         lblErrorNombre.setText("");
@@ -294,7 +298,7 @@ public class Registro extends javax.swing.JFrame {
         }
         
         
-        //Mensaje de prueba para ver que el registro es válido.
+       
         if (regVal) {
 
             String nombre = txtRegistroNombre.getText();
@@ -329,9 +333,12 @@ public class Registro extends javax.swing.JFrame {
             }
 
         }
+      
 
     }//GEN-LAST:event_btnRegistrarseActionPerformed
-
+  /**
+     * El botón borrar limpia los campos de texto. 
+     */
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
         
         txtRegistroNIF.setText("");
@@ -340,7 +347,9 @@ public class Registro extends javax.swing.JFrame {
         txtRegistroTelefono.setText("");
         
     }//GEN-LAST:event_btnBorrarActionPerformed
-
+ /**
+     * Se cierra el formulario de registro y se vuelve al de inicio 
+     */
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         
         empresa.guardarClientes(empresa);
@@ -351,7 +360,9 @@ public class Registro extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnVolverActionPerformed
-
+ /**
+     * Se guardan todos los clientes añadidos en el fichero y se cierra el programa. 
+     */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
        
         empresa.guardarClientes(empresa);

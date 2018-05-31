@@ -15,6 +15,14 @@ import java.util.regex.Pattern;
  */
 public class Validaciones {
     
+    
+     /**
+      * @param nombre recibe un String
+     * Se valida un nombre para que la primera letra empiece por mayúscula 
+     * y el nombre tenga menos de 16 carácteres.
+     * @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     public static boolean introducirNombre(String nombre) {
         
         boolean valido = false;
@@ -25,7 +33,13 @@ public class Validaciones {
         
         return valido;
     }
-
+ /**
+     * @param direccion recibe un String  
+     * Se valida la dirección y esta debe de constar de menos de 31 letras 
+     * y la primera letra debe ser mayúscula.
+     *  @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     public static boolean introducirDireccion(String direccion) {
         
         boolean valido = false;
@@ -36,7 +50,12 @@ public class Validaciones {
         
         return valido;
     }
-    
+     /**
+      * @param NIF recibe un String
+     * Se valida un dni para que tenga ocho difras numéricas y una letra que sea la correcta para ese número. 
+     *  @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     public static boolean introducirNIF(String NIF) {
 
         boolean correcto = false;
@@ -63,7 +82,12 @@ public class Validaciones {
 
     }
 
-
+ /**
+     *@param tlf recibe un String    
+     * Se valida un número telefónico para que tenga nueve dígitos. 
+     * @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     public static boolean introducirNumero(String tlf) {
 
         boolean valido = false;
@@ -77,7 +101,12 @@ public class Validaciones {
         return valido;
 
     }
-    
+     /**
+     *@param tarjeta recibe un String 
+     * Se valida una tarjeta bancaria para que tenga dieciseis dígitos.
+     * @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     public static boolean introducirTarjeta(String tarjeta){
         
         boolean valido = false;
@@ -91,6 +120,12 @@ public class Validaciones {
         
         return valido;
     }
+     /**
+     *@param cuenta recibe un String 
+     * Se valida un número de cuenta bancaria para que tenga veinte dígitos.
+     * @return valido: boolean true si la validación es exitosa, false 
+     * en caso contrario.
+     */
     
     public static boolean introducirCuenta(String cuenta){
         
