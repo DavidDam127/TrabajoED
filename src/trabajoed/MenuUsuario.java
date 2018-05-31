@@ -7,7 +7,9 @@
 package trabajoed;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +20,7 @@ public class MenuUsuario extends javax.swing.JFrame {
     Administracion empresa=new Administracion();
     private Cliente clienteActivo;
         
-    
+    private DefaultTableModel modeloTablaCompras;
     
     public MenuUsuario() {
         initComponents();
@@ -45,6 +47,8 @@ public class MenuUsuario extends javax.swing.JFrame {
         btnDesconectar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         btnPerfil = new javax.swing.JButton();
+        btnVerCompras = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         pnlPrincipal = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         btnCatalogo = new javax.swing.JButton();
@@ -64,7 +68,6 @@ public class MenuUsuario extends javax.swing.JFrame {
         cboxCantidadAcc = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         lblPrecioTotal = new javax.swing.JLabel();
-        btnVolverMenu = new javax.swing.JButton();
         btnConfirmarCompra = new javax.swing.JButton();
         lblTotalCPU = new javax.swing.JLabel();
         lblTotalRAM = new javax.swing.JLabel();
@@ -74,6 +77,11 @@ public class MenuUsuario extends javax.swing.JFrame {
         rbtnCuenta = new javax.swing.JRadioButton();
         jLabel12 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         pnlPerfil = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtNuevoNombre = new javax.swing.JTextField();
@@ -91,7 +99,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         txtNuevaCuenta = new javax.swing.JTextField();
         lblErrorTarjeta = new javax.swing.JLabel();
         lblErrorCuenta = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
+        pnlVerCompras = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaCompras = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
@@ -118,41 +128,62 @@ public class MenuUsuario extends javax.swing.JFrame {
             }
         });
 
+        btnVerCompras.setText("Ver compras");
+        btnVerCompras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerComprasActionPerformed(evt);
+            }
+        });
+
+        btnMenu.setText("Menu");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDesconectar))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSalir)))
-                .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(35, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(lblUsuario)
                         .addGap(68, 68, 68))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnPerfil)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnDesconectar)
+                            .addComponent(btnVerCompras))
                         .addGap(39, 39, 39))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSalir)
+                        .addGap(7, 7, 7))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnPerfil)
+                        .addComponent(btnMenu)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblUsuario)
-                .addGap(68, 68, 68)
-                .addComponent(btnPerfil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnPerfil)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVerCompras)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDesconectar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSalir)
-                .addGap(26, 26, 26))
+                .addGap(52, 52, 52))
         );
 
         pnlPrincipal.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -174,7 +205,7 @@ public class MenuUsuario extends javax.swing.JFrame {
             .addGroup(pnlMenuLayout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(btnCatalogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addComponent(btnReparaciones)
                 .addGap(40, 40, 40))
         );
@@ -185,7 +216,7 @@ public class MenuUsuario extends javax.swing.JFrame {
                 .addGroup(pnlMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnReparaciones)
                     .addComponent(btnCatalogo))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
 
         pnlPrincipal.add(pnlMenu, "card2");
@@ -236,14 +267,7 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         jLabel5.setText("Precio Total: ");
 
-        lblPrecioTotal.setText("0 €");
-
-        btnVolverMenu.setText("Volver");
-        btnVolverMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverMenuActionPerformed(evt);
-            }
-        });
+        lblPrecioTotal.setText("0 ");
 
         btnConfirmarCompra.setText("Comprar");
         btnConfirmarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -252,13 +276,13 @@ public class MenuUsuario extends javax.swing.JFrame {
             }
         });
 
-        lblTotalCPU.setText("0 €");
+        lblTotalCPU.setText("0 ");
 
-        lblTotalRAM.setText("0 €");
+        lblTotalRAM.setText("0 ");
 
-        lblTotalMonitor.setText("0 €");
+        lblTotalMonitor.setText("0 ");
 
-        lblTotalAcc.setText("0 €");
+        lblTotalAcc.setText("0 ");
 
         buttonGroup1.add(rbtnTarjeta);
         rbtnTarjeta.setText("Tarjeta de Crédito");
@@ -270,6 +294,16 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         jCheckBox1.setText("Con envío");
 
+        jLabel13.setText("€");
+
+        jLabel14.setText("€");
+
+        jLabel15.setText("€");
+
+        jLabel16.setText("€");
+
+        jLabel17.setText("€");
+
         javax.swing.GroupLayout pnlCompraLayout = new javax.swing.GroupLayout(pnlCompra);
         pnlCompra.setLayout(pnlCompraLayout);
         pnlCompraLayout.setHorizontalGroup(
@@ -277,60 +311,69 @@ public class MenuUsuario extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCompraLayout.createSequentialGroup()
                 .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlCompraLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(btnVolverMenu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(17, 348, Short.MAX_VALUE)
                         .addComponent(btnConfirmarCompra))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlCompraLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(pnlCompraLayout.createSequentialGroup()
-                                    .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel6))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPrecioCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblPrecioRAM)
-                                        .addComponent(lblPrecioMonitor)
-                                        .addComponent(jLabel3))
-                                    .addGap(67, 67, 67))
-                                .addGroup(pnlCompraLayout.createSequentialGroup()
-                                    .addComponent(jLabel12)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(pnlCompraLayout.createSequentialGroup()
                                 .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPrecioCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPrecioRAM)
+                                    .addComponent(lblPrecioMonitor)
+                                    .addComponent(jLabel3))
+                                .addGap(66, 66, 66))
+                            .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
                                     .addComponent(rbtnCuenta)
                                     .addComponent(rbtnTarjeta))
-                                .addGap(153, 153, 153)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlCompraLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
                                 .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lblPrecioTotal))
                             .addGroup(pnlCompraLayout.createSequentialGroup()
-                                .addComponent(cboxCantidadCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                                .addComponent(lblTotalCPU))
-                            .addGroup(pnlCompraLayout.createSequentialGroup()
-                                .addComponent(cboxCantidadRAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTotalRAM))
-                            .addGroup(pnlCompraLayout.createSequentialGroup()
-                                .addComponent(cboxCantidadMonitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTotalMonitor))
-                            .addGroup(pnlCompraLayout.createSequentialGroup()
-                                .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblTotalAcc))
-                            .addGroup(pnlCompraLayout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(19, 19, 19))
+                                .addGap(1, 1, 1)
+                                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                                        .addComponent(cboxCantidadCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTotalCPU))
+                                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                                        .addComponent(cboxCantidadRAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTotalRAM))
+                                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                                        .addComponent(cboxCantidadMonitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTotalMonitor))
+                                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                                        .addComponent(jCheckBox1)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                                        .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblTotalAcc)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel13)
+                                .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         pnlCompraLayout.setVerticalGroup(
             pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -340,40 +383,52 @@ public class MenuUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(lblPrecioCPU)
                     .addComponent(cboxCantidadCPU, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalCPU))
+                    .addComponent(lblTotalCPU)
+                    .addComponent(jLabel13))
                 .addGap(18, 18, 18)
                 .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(lblPrecioRAM)
                     .addComponent(cboxCantidadRAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalRAM))
+                    .addComponent(lblTotalRAM)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblPrecioMonitor)
                     .addComponent(cboxCantidadMonitor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalMonitor))
-                .addGap(18, 18, 18)
-                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel3)
-                    .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTotalAcc))
-                .addGap(18, 18, 18)
-                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(lblPrecioTotal)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rbtnTarjeta)
+                    .addComponent(lblTotalMonitor)
+                    .addComponent(jLabel15))
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3)))
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cboxCantidadAcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTotalAcc)
+                            .addComponent(jLabel16))))
+                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel12)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(rbtnTarjeta))
+                    .addGroup(pnlCompraLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(lblPrecioTotal)
+                            .addComponent(jLabel17))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbtnCuenta)
                     .addComponent(jCheckBox1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(pnlCompraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnVolverMenu)
-                    .addComponent(btnConfirmarCompra))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(btnConfirmarCompra)
                 .addGap(19, 19, 19))
         );
 
@@ -396,13 +451,6 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         jLabel11.setText("Cuenta: ");
 
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout pnlPerfilLayout = new javax.swing.GroupLayout(pnlPerfil);
         pnlPerfil.setLayout(pnlPerfilLayout);
         pnlPerfilLayout.setHorizontalGroup(
@@ -415,26 +463,24 @@ public class MenuUsuario extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNuevaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnVolver)
-                        .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(pnlPerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(21, 21, 21)
-                                .addComponent(txtNuevaTarjeta))
-                            .addGroup(pnlPerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNuevoTelefono))
-                            .addGroup(pnlPerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtNuevaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlPerfilLayout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNuevoNombre))
-                            .addComponent(jLabel11))))
+                    .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnlPerfilLayout.createSequentialGroup()
+                            .addComponent(jLabel10)
+                            .addGap(21, 21, 21)
+                            .addComponent(txtNuevaTarjeta))
+                        .addGroup(pnlPerfilLayout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNuevoTelefono))
+                        .addGroup(pnlPerfilLayout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtNuevaDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(pnlPerfilLayout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtNuevoNombre))
+                        .addComponent(jLabel11)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblErrorPerfilNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -442,7 +488,7 @@ public class MenuUsuario extends javax.swing.JFrame {
                     .addComponent(lblErrorTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblErrorTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblErrorCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         pnlPerfilLayout.setVerticalGroup(
             pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,14 +520,41 @@ public class MenuUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(txtNuevaCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblErrorCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addGroup(pnlPerfilLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmarPerfil)
-                    .addComponent(btnVolver))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addComponent(btnConfirmarPerfil)
                 .addGap(19, 19, 19))
         );
 
         pnlPrincipal.add(pnlPerfil, "card4");
+
+        tablaCompras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "REFERENCIA", "PRECIO TOTAL", "METODO DE PAGO"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaCompras);
+
+        javax.swing.GroupLayout pnlVerComprasLayout = new javax.swing.GroupLayout(pnlVerCompras);
+        pnlVerCompras.setLayout(pnlVerComprasLayout);
+        pnlVerComprasLayout.setHorizontalGroup(
+            pnlVerComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVerComprasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        pnlVerComprasLayout.setVerticalGroup(
+            pnlVerComprasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlVerComprasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        pnlPrincipal.add(pnlVerCompras, "card5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -522,13 +595,6 @@ public class MenuUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCatalogoActionPerformed
 
-    private void btnVolverMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverMenuActionPerformed
-        // TODO add your handling code here:
-        
-        pnlCompra.setVisible(false);
-        pnlMenu.setVisible(true);
-    }//GEN-LAST:event_btnVolverMenuActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         
         
@@ -539,7 +605,7 @@ public class MenuUsuario extends javax.swing.JFrame {
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         // TODO add your handling code here:
         
-        
+        pnlVerCompras.setVisible(false);
         pnlCompra.setVisible(false);
         pnlMenu.setVisible(false);
         pnlPerfil.setVisible(true);
@@ -634,13 +700,6 @@ public class MenuUsuario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnConfirmarPerfilActionPerformed
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        
-        pnlPerfil.setVisible(false);
-        pnlMenu.setVisible(true);
-        
-    }//GEN-LAST:event_btnVolverActionPerformed
-
     private void cboxCantidadCPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadCPUActionPerformed
         
         int cantidadCPU=0;
@@ -665,12 +724,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         String precioTotal=String.valueOf((cantidadCPU*precioCPU)+(cantidadRAM*precioRAM)
         + (cantidadMonitor*precioMonitor)+(cantidadAccesorios*precioAccesorios));
         
-        lblTotalCPU.setText(totalCPU+"€");
-        lblTotalRAM.setText(totalRAM+"€");
-        lblTotalMonitor.setText(totalMonitor+"€");
-        lblTotalAcc.setText(totalAcc+"€");
+        lblTotalCPU.setText(totalCPU);
+        lblTotalRAM.setText(totalRAM);
+        lblTotalMonitor.setText(totalMonitor);
+        lblTotalAcc.setText(totalAcc);
         
-        lblPrecioTotal.setText(precioTotal+"€");
+        lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadCPUActionPerformed
 
     private void cboxCantidadRAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadRAMActionPerformed
@@ -696,12 +755,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         String precioTotal=String.valueOf((cantidadCPU*precioCPU)+(cantidadRAM*precioRAM)
         + (cantidadMonitor*precioMonitor)+(cantidadAccesorios*precioAccesorios));
         
-        lblTotalCPU.setText(totalCPU+"€");
-        lblTotalRAM.setText(totalRAM+"€");
-        lblTotalMonitor.setText(totalMonitor+"€");
-        lblTotalAcc.setText(totalAcc+"€");
+        lblTotalCPU.setText(totalCPU);
+        lblTotalRAM.setText(totalRAM);
+        lblTotalMonitor.setText(totalMonitor);
+        lblTotalAcc.setText(totalAcc);
         
-        lblPrecioTotal.setText(precioTotal+"€");
+        lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadRAMActionPerformed
 
     private void cboxCantidadMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadMonitorActionPerformed
@@ -729,12 +788,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         String precioTotal=String.valueOf((cantidadCPU*precioCPU)+(cantidadRAM*precioRAM)
         + (cantidadMonitor*precioMonitor)+(cantidadAccesorios*precioAccesorios));
         
-        lblTotalCPU.setText(totalCPU+"€");
-        lblTotalRAM.setText(totalRAM+"€");
-        lblTotalMonitor.setText(totalMonitor+"€");
-        lblTotalAcc.setText(totalAcc+"€");
+        lblTotalCPU.setText(totalCPU);
+        lblTotalRAM.setText(totalRAM);
+        lblTotalMonitor.setText(totalMonitor);
+        lblTotalAcc.setText(totalAcc);
         
-        lblPrecioTotal.setText(precioTotal+"€");
+        lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadMonitorActionPerformed
 
     private void cboxCantidadAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadAccActionPerformed
@@ -762,12 +821,12 @@ public class MenuUsuario extends javax.swing.JFrame {
         String precioTotal=String.valueOf((cantidadCPU*precioCPU)+(cantidadRAM*precioRAM)
         + (cantidadMonitor*precioMonitor)+(cantidadAccesorios*precioAccesorios));
         
-        lblTotalCPU.setText(totalCPU+"€");
-        lblTotalRAM.setText(totalRAM+"€");
-        lblTotalMonitor.setText(totalMonitor+"€");
-        lblTotalAcc.setText(totalAcc+"€");
+        lblTotalCPU.setText(totalCPU);
+        lblTotalRAM.setText(totalRAM);
+        lblTotalMonitor.setText(totalMonitor);
+        lblTotalAcc.setText(totalAcc);
         
-        lblPrecioTotal.setText(precioTotal+"€");
+        lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadAccActionPerformed
 
     private void btnConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarCompraActionPerformed
@@ -785,11 +844,12 @@ public class MenuUsuario extends javax.swing.JFrame {
                         + "\nUsuario: "
                         + "\n\t " + clienteActivo.getNombre()
                         + "\nPrecio total: "
-                        + "\n\t" + lblPrecioTotal.getText()
+                        + "\n\t" + lblPrecioTotal.getText()+"€"
                         + "\nMétodo de pago: "
                         + "\n\tTarjeta de Crédito";
                 
-                referencia=clienteActivo.getNombre().substring(0,3)+lblPrecioTotal.getText();
+                referencia=clienteActivo.getId()+clienteActivo.getNombre().substring(0,3)+empresa.getNumeroCompras();
+                empresa.setNumeroCompras(empresa.getNumeroCompras()+1);
                 metodo='T';
 
                 
@@ -798,14 +858,15 @@ public class MenuUsuario extends javax.swing.JFrame {
 
             } else if (rbtnCuenta.isSelected() && clienteActivo.getCuentaCorriente() != null) {
                 
-                referencia=clienteActivo.getNombre().substring(0,3)+lblPrecioTotal.getText();
+                referencia=clienteActivo.getId()+clienteActivo.getNombre().substring(0,3)+empresa.getNumeroCompras();
+                empresa.setNumeroCompras(empresa.getNumeroCompras()+1);
                 
                 metodo='C';
                 detallesCompra = "Detalles de la compra: "
                         + "\nUsuario: "
                         + "\n\t " + clienteActivo.getNombre()
                         + "\nPrecio total: "
-                        + "\n\t" + lblPrecioTotal.getText()
+                        + "\n\t" + lblPrecioTotal.getText()+"€"
                         + "\nMétodo de pago: "
                         + "\n\tCuenta Corriente.";
                 
@@ -833,6 +894,43 @@ public class MenuUsuario extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE, null);
         }
     }//GEN-LAST:event_btnConfirmarCompraActionPerformed
+
+    private void btnVerComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerComprasActionPerformed
+        
+        pnlMenu.setVisible(false);
+        pnlPerfil.setVisible(false);
+        pnlCompra.setVisible(false);
+        pnlVerCompras.setVisible(true);
+        
+        
+        
+        String[]columnas={"REFERENCIA","PRECIO TOTAL","MÉTODO DE PAGO"};
+        modeloTablaCompras=new DefaultTableModel(columnas, 0);
+        tablaCompras.setModel(modeloTablaCompras);
+        ArrayList<Compra> lista=empresa.getListadoCompras();
+        
+        
+        
+        if(lista!=null){
+            for(Compra c:lista){
+                
+                if(c.getReferencia().substring(0,1).equals(String.valueOf(clienteActivo.getId()))){
+                    modeloTablaCompras.addRow(new Object[]{c.getReferencia(), c.getPrecioTotal(), c.getMetodoPago()} );
+                }
+                
+            }
+        }
+        
+        
+    }//GEN-LAST:event_btnVerComprasActionPerformed
+
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        
+        pnlVerCompras.setVisible(false);
+        pnlCompra.setVisible(false);
+        pnlMenu.setVisible(true);
+        pnlPerfil.setVisible(false);
+    }//GEN-LAST:event_btnMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -874,11 +972,11 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btnConfirmarCompra;
     private javax.swing.JButton btnConfirmarPerfil;
     private javax.swing.JButton btnDesconectar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btnPerfil;
     private javax.swing.JButton btnReparaciones;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JButton btnVolverMenu;
+    private javax.swing.JButton btnVerCompras;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cboxCantidadAcc;
     private javax.swing.JComboBox<String> cboxCantidadCPU;
@@ -889,6 +987,11 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -898,6 +1001,7 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblErrorCuenta;
     private javax.swing.JLabel lblErrorDireccion;
     private javax.swing.JLabel lblErrorPerfilNombre;
@@ -916,8 +1020,10 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlPerfil;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlVerCompras;
     private javax.swing.JRadioButton rbtnCuenta;
     private javax.swing.JRadioButton rbtnTarjeta;
+    private javax.swing.JTable tablaCompras;
     private javax.swing.JTextField txtNuevaCuenta;
     private javax.swing.JTextField txtNuevaDireccion;
     private javax.swing.JTextField txtNuevaTarjeta;

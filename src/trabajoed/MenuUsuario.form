@@ -63,30 +63,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="btnDesconectar" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace pref="18" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="35" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnPerfil" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="btnDesconectar" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnVerCompras" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Component id="btnPerfil" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -95,13 +99,17 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblUsuario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                  <Component id="btnPerfil" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnPerfil" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnMenu" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="btnVerCompras" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnDesconectar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -133,6 +141,22 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPerfilActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JButton" name="btnVerCompras">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ver compras"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerComprasActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnMenu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Menu"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="pnlPrincipal">
@@ -159,7 +183,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="btnCatalogo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="144" max="32767" attributes="0"/>
+                      <EmptySpace pref="136" max="32767" attributes="0"/>
                       <Component id="btnReparaciones" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
@@ -173,7 +197,7 @@
                           <Component id="btnReparaciones" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnCatalogo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="174" max="32767" attributes="0"/>
+                      <EmptySpace pref="175" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -207,78 +231,91 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              <Component id="btnVolverMenu" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="17" pref="348" max="32767" attributes="0"/>
                               <Component id="btnConfirmarCompra" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblPrecioCPU" min="-2" pref="67" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioRAM" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblPrecioMonitor" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rbtnCuenta" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rbtnTarjeta" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblPrecioCPU" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <Component id="lblPrecioRAM" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPrecioMonitor" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtnCuenta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="rbtnTarjeta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="lblPrecioTotal" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="cboxCantidadCPU" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="67" max="32767" attributes="0"/>
-                                      <Component id="lblTotalCPU" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="cboxCantidadRAM" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblTotalRAM" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="cboxCantidadMonitor" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblTotalMonitor" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="cboxCantidadAcc" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="lblTotalAcc" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace min="1" pref="1" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="cboxCantidadCPU" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblTotalCPU" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="cboxCantidadRAM" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblTotalRAM" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="cboxCantidadMonitor" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblTotalMonitor" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="cboxCantidadAcc" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="lblTotalAcc" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel16" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -291,6 +328,7 @@
                           <Component id="lblPrecioCPU" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cboxCantidadCPU" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTotalCPU" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -298,6 +336,7 @@
                           <Component id="lblPrecioRAM" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cboxCantidadRAM" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTotalRAM" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -305,32 +344,48 @@
                           <Component id="lblPrecioMonitor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cboxCantidadMonitor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblTotalMonitor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cboxCantidadAcc" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblTotalAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cboxCantidadAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTotalAcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblPrecioTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="rbtnTarjeta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblPrecioTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="rbtnTarjeta" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbtnCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="13" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnVolverMenu" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnConfirmarCompra" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <Component id="btnConfirmarCompra" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -464,16 +519,8 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblPrecioTotal">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0 &#x20ac;"/>
+                <Property name="text" type="java.lang.String" value="0 "/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnVolverMenu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Volver"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverMenuActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnConfirmarCompra">
               <Properties>
@@ -485,22 +532,22 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblTotalCPU">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0 &#x20ac;"/>
+                <Property name="text" type="java.lang.String" value="0 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTotalRAM">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0 &#x20ac;"/>
+                <Property name="text" type="java.lang.String" value="0 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTotalMonitor">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0 &#x20ac;"/>
+                <Property name="text" type="java.lang.String" value="0 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTotalAcc">
               <Properties>
-                <Property name="text" type="java.lang.String" value="0 &#x20ac;"/>
+                <Property name="text" type="java.lang.String" value="0 "/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbtnTarjeta">
@@ -529,6 +576,31 @@
                 <Property name="text" type="java.lang.String" value="Con env&#xed;o"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="jLabel13">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel14">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel15">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel16">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel17">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#x20ac;"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlPerfil">
@@ -550,31 +622,28 @@
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="txtNuevaCuenta" min="-2" pref="172" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Component id="btnVolver" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                      <Component id="txtNuevaTarjeta" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtNuevoTelefono" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtNuevaDireccion" min="-2" pref="170" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="txtNuevoNombre" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="txtNuevaTarjeta" max="32767" attributes="0"/>
                               </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtNuevoTelefono" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtNuevaDireccion" min="-2" pref="170" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="txtNuevoNombre" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -585,7 +654,7 @@
                           <Component id="lblErrorTarjeta" max="32767" attributes="0"/>
                           <Component id="lblErrorCuenta" pref="135" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -626,11 +695,8 @@
                           <Component id="txtNuevaCuenta" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblErrorCuenta" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnConfirmarPerfil" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnVolver" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace pref="78" max="32767" attributes="0"/>
+                      <Component id="btnConfirmarPerfil" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -690,14 +756,78 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblErrorCuenta">
             </Component>
-            <Component class="javax.swing.JButton" name="btnVolver">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Volver"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverActionPerformed"/>
-              </Events>
-            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlVerCompras">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card5"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="435" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="331" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tablaCompras">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="3" rowCount="0">
+                        <Column editable="true" title="REFERENCIA" type="java.lang.Object"/>
+                        <Column editable="true" title="PRECIO TOTAL" type="java.lang.Object"/>
+                        <Column editable="true" title="METODO DE PAGO" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
