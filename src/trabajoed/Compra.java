@@ -5,11 +5,13 @@
  */
 package trabajoed;
 
+import java.io.Serializable;
+
 /**
  *
  * @author DAM127
  */
-public class Compra {
+public class Compra implements Serializable{
     private String referencia;
     private double precioTotal;
     private char metodoPago;
@@ -22,6 +24,32 @@ public class Compra {
         
                 
     }
+
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(String referencia) {
+        this.referencia = referencia;
+    }
+
+    public double getPrecioTotal() {
+        return precioTotal;
+    }
+
+    public void setPrecioTotal(double precioTotal) {
+        this.precioTotal = precioTotal;
+    }
+
+    public char getMetodoPago() {
+        return metodoPago;
+    }
+
+    public void setMetodoPago(char metodoPago) {
+        this.metodoPago = metodoPago;
+    }
+    
+    
     
     public String devolverFactura(){
         

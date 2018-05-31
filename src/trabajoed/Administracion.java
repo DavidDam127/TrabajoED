@@ -26,6 +26,7 @@ public class Administracion {
     private File datosClientes = new File("clientes.dat");
     private File datosCompras = new File("compras.dat");
     private ArrayList<Compra> listadoCompras;
+    private int numeroCompras = 0;
 
     public Administracion() {
 
@@ -35,7 +36,7 @@ public class Administracion {
         
         
         // Carga de los clientes en el Array.
-        ObjectInputStream io;
+        ObjectInputStream io=null;
         try {
             io =new ObjectInputStream(new FileInputStream(datosClientes));
             Cliente c=null;
@@ -49,7 +50,26 @@ public class Administracion {
             
         }
         
+        
         setNumeroClientes(listadoClientes.size()+1);
+        
+        //Carga las compras en el Array
+        
+        ObjectInputStream io2;
+        try {
+            io2 =new ObjectInputStream(new FileInputStream(datosCompras));
+            Compra c2=null;
+            while(true){
+                c2=(Compra)io2.readObject();
+                this.listadoCompras.add(c2);
+            }
+        } catch (IOException ex) {
+            
+        } catch (ClassNotFoundException ex) {
+            
+        }
+        
+        setNumeroCompras(listadoCompras.size()+1);
 
     }
 
@@ -262,6 +282,19 @@ public class Administracion {
         }
 
     }
+
+    public ArrayList<Compra> getListadoCompras() {
+        return listadoCompras;
+    }
+
+    public void setNumeroCompras(int numeroCompras) {
+        this.numeroCompras = numeroCompras;
+    }
+
+    public int getNumeroCompras() {
+        return numeroCompras;
+    }
+    
     
 
 }
