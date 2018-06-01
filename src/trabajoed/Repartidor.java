@@ -15,5 +15,7 @@ public class Repartidor {
 
     public Repartidor() {
     }
-    
+    public void fechaSalidaEnvio(Envio e){
+        e.getFechaSalida();
+    }
 }

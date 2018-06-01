@@ -11,10 +11,22 @@ package trabajoed;
  */
 public class EmpleadoTaller extends Empleado{
     
-    private boolean senior;
+    private int experiencia;
     
     public EmpleadoTaller(){
         
     }
     
+    public void senior(Empleado nombre){
+        if(experiencia>=3){
+            System.out.println(nombre+" es una empleado de taller senior.");
+        }
+    }
+    
+    public void grupo(int numPrs,String nombre){
+        if(numPrs>=2){
+            System.out.println("Se ha formado el grupo "+nombre+" con "+numPrs+" personas que lo componen.");
+        }else
+            System.out.println("No hay suficiente gente para formar el grupo "+nombre);
+    }
 }

@@ -91,6 +91,10 @@ public class Cliente implements Serializable{
     }
     
     
+    
+    public void seguimientoEnvio(Envio e){
+        e.toString();
+    }
 
     @Override
     public String toString() {
