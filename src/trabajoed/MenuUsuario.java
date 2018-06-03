@@ -579,7 +579,10 @@ public class MenuUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+ /**
+     * El botón desconectar cierra tu sesión y te devuelve a la 
+     * ventana de inicio. 
+     */
     private void btnDesconectarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesconectarActionPerformed
         
         dispose();
@@ -587,21 +590,28 @@ public class MenuUsuario extends javax.swing.JFrame {
         in.setVisible(true);
         
     }//GEN-LAST:event_btnDesconectarActionPerformed
-
+ /**
+     * El botón catálogo te muestra el catálogo de compra.
+     */
     private void btnCatalogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCatalogoActionPerformed
         
         pnlMenu.setVisible(false);
         pnlCompra.setVisible(true);
         
     }//GEN-LAST:event_btnCatalogoActionPerformed
-
+/**
+     * Este método finaliza el programa.
+     */
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         
         
         System.exit(0);
         
     }//GEN-LAST:event_btnSalirActionPerformed
-
+/**
+     * Este método te permite entrar al perfil donde se puede cambiar tus datos personales
+     * e introducir tu número de cuenta bancaria y tu número de tarjeta de crédito.
+     */
     private void btnPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPerfilActionPerformed
         // TODO add your handling code here:
         
@@ -616,7 +626,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         txtNuevaTarjeta.setText(clienteActivo.getTarjetaCredito());
         txtNuevaCuenta.setText(clienteActivo.getCuentaCorriente());
     }//GEN-LAST:event_btnPerfilActionPerformed
-
+/**
+     * Este método comprueba que los nuevos datos sean válidos si no es así te avisa del error. 
+     */
     private void btnConfirmarPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPerfilActionPerformed
         
         boolean valido=true;
@@ -699,7 +711,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnConfirmarPerfilActionPerformed
-
+/**
+     * Este método permite seleccionar una cantidad de unidads para comprar.
+     */
     private void cboxCantidadCPUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadCPUActionPerformed
         
         int cantidadCPU=0;
@@ -731,7 +745,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadCPUActionPerformed
-
+/**
+     * Este método permite seleccionar una cantidad de unidads para comprar.
+     */
     private void cboxCantidadRAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadRAMActionPerformed
         int cantidadCPU=0;
         int cantidadRAM=0;
@@ -762,7 +778,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadRAMActionPerformed
-
+/**
+     * Este método permite seleccionar una cantidad de unidads para comprar.
+     */
     private void cboxCantidadMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadMonitorActionPerformed
         // TODO add your handling code here:
         
@@ -795,7 +813,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadMonitorActionPerformed
-
+/**
+     * Este método permite seleccionar una cantidad de unidads para comprar.
+     */
     private void cboxCantidadAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxCantidadAccActionPerformed
         // TODO add your handling code here:
         
@@ -828,7 +848,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         lblPrecioTotal.setText(precioTotal);
     }//GEN-LAST:event_cboxCantidadAccActionPerformed
-
+/**
+     * Este método confirma tu compra, te la muestra por pantalla.
+     */
     private void btnConfirmarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarCompraActionPerformed
         // TODO add your handling code here:
 
@@ -894,7 +916,9 @@ public class MenuUsuario extends javax.swing.JFrame {
                     JOptionPane.ERROR_MESSAGE, null);
         }
     }//GEN-LAST:event_btnConfirmarCompraActionPerformed
-
+/**
+     * Este botón te permite acceder al panel verComprasr.
+     */
     private void btnVerComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerComprasActionPerformed
         
         pnlMenu.setVisible(false);
@@ -923,7 +947,9 @@ public class MenuUsuario extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnVerComprasActionPerformed
-
+/**
+     * Este botón te devuelve al panel de menú.
+     */
     private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
         
         pnlVerCompras.setVisible(false);

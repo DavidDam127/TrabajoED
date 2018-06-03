@@ -160,7 +160,10 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Este método se encarga de comprobar que el usuario y la contraseña
+     * son correctos. Además informa del error en caso de que no se cumplan las condiciones 
+   */
     private void btnAceptarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarInicioActionPerformed
         
         String contraseña="";
@@ -190,20 +193,26 @@ public class Inicio extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnAceptarInicioActionPerformed
-
+  /**
+     * Este método abre la ventada de registro.
+     */
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         
         dispose();
         Registro reg=new Registro();
         reg.setVisible(true);
     }//GEN-LAST:event_btnRegistroActionPerformed
-
+/**
+     * Este método finaliza el programa.
+     */
     private void btnSalirInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirInicioActionPerformed
         // TODO add your handling code here:
         
         System.exit(0);
     }//GEN-LAST:event_btnSalirInicioActionPerformed
-
+ /**
+     * El botón borrar limpia los campos de texto. 
+     */
     private void btnBorrarInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarInicioActionPerformed
         
         txtIdInicio.setText("");

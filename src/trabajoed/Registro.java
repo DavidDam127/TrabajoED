@@ -221,7 +221,7 @@ public class Registro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-     * Este método se encarga de realizar el registro. 
+      * Este método se encarga de realizar el registro. 
      * Valida los datos introducidos usando los metodos estaticos de la clase validaciones.
      * En caso de que la validación falle se envía un mensaje de error.
      */
